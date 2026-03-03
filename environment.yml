@@ -1,0 +1,10 @@
+name: jaguar-reid-linusloell
+dependencies:
+  - numpy
+  - pandas
+  - pytorch
+  - torchvision
+  - torchaudio
+  - scikit-learn
+  - matplotlib
+  - tqdm
