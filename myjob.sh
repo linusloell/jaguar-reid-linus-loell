@@ -8,7 +8,7 @@
 #SBATCH --mem=32gb
 #SBATCH --gpus=1
 #SBATCH --time=1:00:00
-#SBATCH --output=jaguar-reid_%j.log # %j is job id
+#SBATCH --output=logs/%x_%j.log # %j is job id
 
 
 echo '=================== GPU ================'

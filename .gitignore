@@ -3,3 +3,6 @@ data
 notebooks/wandb
 notebooks/__pycache__
 notebooks/checkpoints
+embeddings
+logs
+*.log
