@@ -6,3 +6,4 @@ notebooks/checkpoints
 embeddings
 logs
 *.log
+*.nbconvert.ipynb
