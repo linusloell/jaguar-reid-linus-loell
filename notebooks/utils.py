@@ -31,10 +31,8 @@ def load_train_data(data_dir: Path, subset_fraction: float | None = None, seed: 
     if subset_fraction is not None:
         if not 0 < subset_fraction < 1:
             raise ValueError(f"subset_fraction must be in (0, 1), got {subset_fraction}")
-        train_df = train_df.groupby("ground_truth", group_keys=False).apply(
-            lambda g: g.sample(frac=subset_fraction, random_state=seed)
-        ).reset_index(drop=True)
-        print(f"Using {subset_fraction:.0%} stratified subset of the data")
+        train_df = train_df.sample(frac=subset_fraction, random_state=seed).reset_index(drop=True)
+        print(f"Using {subset_fraction:.0%} subset of the data ({len(train_df)} samples)")
 
     print("Training dataset:")
     print(f"  Total images:      {len(train_df)}")
