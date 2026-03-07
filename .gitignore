@@ -7,3 +7,4 @@ embeddings
 logs
 *.log
 *.nbconvert.ipynb
+.ipynb_checkpoints
