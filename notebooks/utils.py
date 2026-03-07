@@ -12,14 +12,11 @@ from sklearn.preprocessing import LabelEncoder
 # Data loading & preview
 # ---------------------------------------------------------------------------
 
-def load_train_data(data_dir: Path, subset_fraction: float | None = None, seed: int = 42) -> pd.DataFrame:
+def load_train_data(data_dir: Path, seed: int = 42) -> pd.DataFrame:
     """Load train.csv and print a basic summary.
 
     Args:
         data_dir:         Root directory that contains ``train.csv``.
-        subset_fraction:  If given (e.g. ``0.1`` for 10 %), a stratified random
-                          sample of that fraction is returned. Must be in (0, 1).
-                          ``None`` returns the full dataset.
         seed:             Random seed used when sampling a subset.
 
     Returns:
@@ -27,12 +24,6 @@ def load_train_data(data_dir: Path, subset_fraction: float | None = None, seed: 
         ``filename`` and ``ground_truth``.
     """
     train_df = pd.read_csv(data_dir / "train.csv")
-
-    if subset_fraction is not None:
-        if not 0 < subset_fraction < 1:
-            raise ValueError(f"subset_fraction must be in (0, 1), got {subset_fraction}")
-        train_df = train_df.sample(frac=subset_fraction, random_state=seed).reset_index(drop=True)
-        print(f"Using {subset_fraction:.0%} subset of the data ({len(train_df)} samples)")
 
     print("Training dataset:")
     print(f"  Total images:      {len(train_df)}")
