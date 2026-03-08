@@ -6,7 +6,7 @@ Foundations:
 
 - Megadescriptor
 - DINOv3
-- ConvNeXt v2
+- ConvNeXt v2: facebook/convnextv2-tiny-22k-224
 - SwinTransformers
 
 Lightweight:
