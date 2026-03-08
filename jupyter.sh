@@ -1,19 +1,17 @@
 #!/bin/bash -eux
 #SBATCH --job-name=jupyter
 #SBATCH --account=sci-demelo-computer-vision
-#SBATCH --output=jupyter_%j.out
+#SBATCH --output=jp.out
 #SBATCH --partition=cpu-batch # -p
 #SBATCH --cpus-per-task=1 # -c
-#SBATCH --mem=8gb
+#SBATCH --mem=16gb
 #SBATCH --time=08:00:00
 
 # uncomment to receive email when job fails
 ##SBATCH --mail-type=END,FAIL
 ##SBATCH --mail-user=firstname.lastname@student.hpi.de
 
-# Initialize conda:
 eval "$(conda shell.bash hook)"
-
 # Set the correct IP variable:
 IP=$(hostname -I | tr ' ' '\n' | grep -m1 '^10\.130\.')
 
