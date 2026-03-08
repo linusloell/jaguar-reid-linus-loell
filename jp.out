@@ -1630,3 +1630,1394 @@ export _CONDA_ROOT='\''/sc/home/linus.loell/conda3'\'''
 [I 2026-03-08 21:12:34.970 ServerApp] Saving file at /notebooks/dinoV3-arcfaceloss.ipynb
 [I 2026-03-08 21:17:11.035 ServerApp] Saving file at /notebooks/dinoV3-arcfaceloss.ipynb
 [I 2026-03-08 21:17:43.835 ServerApp] Saving file at /notebooks/dinoV3-arcfaceloss.ipynb
+[W 2026-03-08 21:19:31.263 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171200 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 11.09ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.265 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py', via 404 Error
+[E 2026-03-08 21:19:31.265 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171200 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171200', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.281 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171200 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.86ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.282 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py', via 404 Error
+[E 2026-03-08 21:19:31.282 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171200 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171200', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.303 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171200 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.97ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.303 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py', via 404 Error
+[E 2026-03-08 21:19:31.303 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171200 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171200', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.316 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171205 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 4.20ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.316 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py', via 404 Error
+[E 2026-03-08 21:19:31.316 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171205 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171205', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/_methods.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.321 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171205 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 8.86ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.322 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py', via 404 Error
+[E 2026-03-08 21:19:31.322 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171205 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171205', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.326 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171205 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 12.86ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.326 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py', via 404 Error
+[E 2026-03-08 21:19:31.326 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171205 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171205', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/_methods.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.331 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171205 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.14ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.331 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py', via 404 Error
+[E 2026-03-08 21:19:31.331 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171205 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171205', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.334 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171206 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 0.91ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.335 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py', via 404 Error
+[E 2026-03-08 21:19:31.335 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171206 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171206', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.352 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171207 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.39ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.352 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py', via 404 Error
+[E 2026-03-08 21:19:31.352 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171207 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171207', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/_methods.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.366 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171208 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.62ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.366 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py', via 404 Error
+[E 2026-03-08 21:19:31.366 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171208 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171208', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.372 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171208 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.77ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.373 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py', via 404 Error
+[E 2026-03-08 21:19:31.373 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171208 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171208', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/_methods.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.380 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171209 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 2.20ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.381 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py', via 404 Error
+[E 2026-03-08 21:19:31.381 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171209 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171209', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.384 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171209 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 5.36ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.385 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py', via 404 Error
+[E 2026-03-08 21:19:31.385 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171209 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171209', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/_methods.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.389 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171210 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.12ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.389 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py', via 404 Error
+[E 2026-03-08 21:19:31.390 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171210 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171210', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.401 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171210 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.14ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.402 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py', via 404 Error
+[E 2026-03-08 21:19:31.402 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171210 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171210', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/_methods.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.416 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171210 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.52ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.416 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py', via 404 Error
+[E 2026-03-08 21:19:31.416 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171210 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171210', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.422 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171211 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.50ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.422 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py', via 404 Error
+[E 2026-03-08 21:19:31.423 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171211 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171211', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/_methods.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.430 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171211 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.54ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.431 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py', via 404 Error
+[E 2026-03-08 21:19:31.431 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171211 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171211', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.436 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171211 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.27ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.436 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py', via 404 Error
+[E 2026-03-08 21:19:31.436 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171211 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171211', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/_methods.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.441 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171212 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.13ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.441 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py', via 404 Error
+[E 2026-03-08 21:19:31.441 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171212 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171212', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.450 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171212 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.03ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.451 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py', via 404 Error
+[E 2026-03-08 21:19:31.451 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171212 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171212', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/_methods.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.466 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171212 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.62ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.466 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py', via 404 Error
+[E 2026-03-08 21:19:31.466 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171212 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171212', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.472 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171212 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.48ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.473 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py', via 404 Error
+[E 2026-03-08 21:19:31.473 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171212 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171212', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/_methods.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.480 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171213 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.48ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.481 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py', via 404 Error
+[E 2026-03-08 21:19:31.481 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171213 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171213', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.485 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171213 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.15ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.485 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py', via 404 Error
+[E 2026-03-08 21:19:31.486 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171213 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171213', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/_methods.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.490 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171213 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.14ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.490 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py', via 404 Error
+[E 2026-03-08 21:19:31.490 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171213 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py?content=0&hash=0&1773001171213', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/fromnumeric.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.499 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171213 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 0.80ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.500 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py', via 404 Error
+[E 2026-03-08 21:19:31.500 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171213 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/numpy/_core/_methods.py?content=0&hash=0&1773001171213', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/numpy/_core/_methods.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.516 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171215 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.42ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.516 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py', via 404 Error
+[E 2026-03-08 21:19:31.516 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171215 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171215', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.521 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171215 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.38ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.522 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py', via 404 Error
+[E 2026-03-08 21:19:31.522 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171215 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171215', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[W 2026-03-08 21:19:31.529 ServerApp] 404 GET /api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171215 (11a01814ef92484d9a05e735a87d9eac@10.134.0.10) 1.40ms referer=http://10.130.31.15:60666/lab/tree/notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:19:31.530 ServerApp] Refusing to serve hidden file or directory '/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py', via 404 Error
+[E 2026-03-08 21:19:31.530 ServerApp] Uncaught exception GET /api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171215 (10.134.0.10)
+    HTTPServerRequest(protocol='http', host='10.130.31.15:60666', method='GET', uri='/api/contents/.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py?content=0&hash=0&1773001171215', version='HTTP/1.1', remote_ip='10.134.0.10')
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 156, in get
+        model = await ensure_async(
+                ^^^^^^^^^^^^^^^^^^^
+        ...<7 lines>...
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_core/utils/__init__.py", line 214, in ensure_async
+        result = await obj
+                 ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 928, in get
+        model = await self._file_model(
+                ^^^^^^^^^^^^^^^^^^^^^^^
+            path, content=content, format=format, require_hash=require_hash
+            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+        )
+        ^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 829, in _file_model
+        model = self._base_model(path)
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/filemanager.py", line 237, in _base_model
+        raise web.HTTPError(404, four_o_four)
+    tornado.web.HTTPError: HTTP 404: Not Found (file or directory does not exist: '.venv/lib/python3.13/site-packages/sklearn/manifold/_mds.py')
+    
+    During handling of the above exception, another exception occurred:
+    
+    Traceback (most recent call last):
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 1859, in _execute
+        result = await result
+                 ^^^^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/auth/decorator.py", line 73, in inner
+        return await out
+               ^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 182, in get
+        await self._finish_error(
+            HTTPStatus.NOT_FOUND, f"file or directory {path!r} does not exist"
+        )
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/jupyter_server/services/contents/handlers.py", line 114, in _finish_error
+        self.write(message)
+        ~~~~~~~~~~^^^^^^^^^
+      File "/sc/home/linus.loell/jaguar-reid-linus-loell/.venv/lib/python3.13/site-packages/tornado/web.py", line 974, in write
+        raise RuntimeError("Cannot write() after finish()")
+    RuntimeError: Cannot write() after finish()
+[I 2026-03-08 21:19:31.747 ServerApp] Kernel started: 8878885b-0089-4a62-a965-b7a5cbad085a
+[I 2026-03-08 21:19:34.247 ServerApp] Adapting from protocol version 5.3 (kernel 8878885b-0089-4a62-a965-b7a5cbad085a) to 5.4 (client).
+[I 2026-03-08 21:19:34.248 ServerApp] Connecting to kernel 8878885b-0089-4a62-a965-b7a5cbad085a.
+[I 2026-03-08 21:19:56.033 ServerApp] Saving file at /notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:20:31.372 ServerApp] Saving file at /notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:21:11.833 ServerApp] Saving file at /notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:21:13.008 ServerApp] Saving file at /notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:21:38.979 ServerApp] Saving file at /notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:22:12.826 ServerApp] Saving file at /notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:22:41.215 ServerApp] Saving file at /notebooks/ConvNextV2-arcfaceloss.ipynb
+[I 2026-03-08 21:26:27.710 ServerApp] Saving file at /notebooks/dinoV3-arcfaceloss.ipynb
