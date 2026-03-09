@@ -18,4 +18,4 @@ echo '=================== GPU ================'
 nvidia-smi
 
 echo '=================== Notebook  ================'
-jupyter nbconvert --to notebook --execute ./notebooks/dinoV3-arcfaceloss.ipynb
+jupyter nbconvert --to notebook --execute ./notebooks/SwinTransformer-arcfaceloss.ipynb
