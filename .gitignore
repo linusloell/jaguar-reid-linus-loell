@@ -8,3 +8,4 @@ logs
 *.log
 *.nbconvert.ipynb
 .ipynb_checkpoints
+jp.out
