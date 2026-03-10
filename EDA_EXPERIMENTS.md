@@ -4,7 +4,20 @@ DinoV3 with RoPE (Rotary Positional Embeddings)?
 
 ## Loss Functions
 
-ArcFace, ArcCos, Focal Loss, and Cross Entropy
+### Loss Function Comparison
+
+Compare different metric learning and classification losses:
+
+| Loss | Applied to | Head type | Training target | Inference |
+|------|-----------|-----------|-----------------|-----------|
+| **ArcFace** | Logits (normalized + margin) | ArcFaceLayer | CE on margin-adjusted logits | Normalized embeddings + cosine similarity |
+| **CE** | Logits only | Linear classifier | Standard cross-entropy | Embeddings + cosine similarity |
+| **Sphere loss** | Logits (angular margin) | SphereLayer | CE on sphere-adjusted logits | Normalized embeddings + cosine similarity |
+| **Focal loss** | Logits only | Linear classifier | Hard example weighting | Embeddings + cosine similarity |
+
+**Key distinctions:**
+- **Metric learning** (ArcFace, Sphere, Triplet): Optimize embedding geometry directly; work with normalized embeddings
+- **Classification** (CE, Focal): Use standard logits head; can work with unnormalized embeddings
 
 Validity requirements:
 - Controlled comparison (same backbone, schedule, augmentations, embedding dimension, evaluation)
