@@ -32,3 +32,12 @@ Interpretation: what characteristics matter and why
 | Swin Transformer | microsoft/swin-tiny-patch4-window7-224 | 27,519,354 | 0.7507 |
 | EfficientNet | google/efficientnet-b7 | 63,786,960 | 0.8329 |
 | ResNet18 | microsoft/resnet-18 | 11,176,512 | 0.6531 |
+
+
+# wich optimizer is best?
+
+# wich LR-scheduler is best?
+- reduce on plateu (baseline)
+- exponential
+- cosine annealing
+- step decay
