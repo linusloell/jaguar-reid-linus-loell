@@ -18,5 +18,5 @@ echo '=================== GPU ================'
 nvidia-smi
 
 echo '=================== Notebook  ================'
-export RUN_CONFIG_PATH="configs/lr-scheduler-cosine.json"
+export RUN_CONFIG_PATH="configs/lr-scheduler-exponential.json"
 jupyter nbconvert --to notebook --execute ./jaguar-ident.ipynb
