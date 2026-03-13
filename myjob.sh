@@ -18,4 +18,5 @@ echo '=================== GPU ================'
 nvidia-smi
 
 echo '=================== Notebook  ================'
-jupyter nbconvert --to notebook --execute ./notebooks/losscomparison.ipynb
+export RUN_CONFIG_PATH="configs/lr-scheduler-cosine.json"
+jupyter nbconvert --to notebook --execute ./jaguar-ident.ipynb

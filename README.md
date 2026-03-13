@@ -44,7 +44,7 @@ Current default file: `configs/baseline.json`
 | `dropout` | Dropout probability in the projection head. |  |
 | `batch_size` | Batch size for embedding extraction and training dataloaders. |  |
 | `learning_rate` | Base optimizer learning rate (`AdamW`). |  |
-| `lr_scheduler_type` | Learning rate scheduler strategy. | `"reduce_on_plateau"`, `"exponential"`, `"cosine"`, `"step"`. |
+| `lr_scheduler_type` | Learning rate scheduler strategy. | `"reduce_on_plateau"`, `"exponential"`, `"cosine"`, `"cosine_warmup"`, `"step"`. |
 | `weight_decay` | Weight decay used by `AdamW`. |  |
 | `num_epochs` | Maximum number of training epochs. | |
 | `patience` | Early stopping patience (epochs without val-loss improvement). |  |

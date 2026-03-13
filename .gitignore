@@ -1,8 +1,10 @@
 .env
 data
 notebooks/wandb
+wandb
 notebooks/__pycache__
 notebooks/checkpoints
+checkpoints
 embeddings
 logs
 *.log
