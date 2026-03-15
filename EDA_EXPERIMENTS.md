@@ -15,10 +15,6 @@ Compare different metric learning and classification losses:
 | **Sphere loss** | Logits (angular margin) | SphereLayer | CE on sphere-adjusted logits | Normalized embeddings + cosine similarity |
 | **Focal loss** | Logits only | Linear classifier | Hard example weighting | Embeddings + cosine similarity |
 
-**Key distinctions:**
-- **Metric learning** (ArcFace, Sphere, Triplet): Optimize embedding geometry directly; work with normalized embeddings
-- **Classification** (CE, Focal): Use standard logits head; can work with unnormalized embeddings
-
 Validity requirements:
 - Controlled comparison (same backbone, schedule, augmentations, embedding dimension, evaluation)
 - Report identity-balanced mAP and training stability notes
