@@ -18,5 +18,5 @@ echo '=================== GPU ================'
 nvidia-smi
 
 echo '=================== Notebook  ================'
-export RUN_CONFIG_PATH="configs/optimizer-muon.json"
+export RUN_CONFIG_PATH="configs/combined.json"
 jupyter nbconvert --to notebook --execute ./jaguar-ident.ipynb
