@@ -18,5 +18,5 @@ echo '=================== GPU ================'
 nvidia-smi
 
 echo '=================== Notebook  ================'
-export RUN_CONFIG_PATH="configs/combined.json"
+export RUN_CONFIG_PATH="configs/c2-dinov3-cosine.json"
 jupyter nbconvert --to notebook --execute ./jaguar-ident.ipynb
