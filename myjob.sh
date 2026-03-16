@@ -18,5 +18,5 @@ echo '=================== GPU ================'
 nvidia-smi
 
 echo '=================== Notebook  ================'
-export RUN_CONFIG_PATH="configs/bg_intervention_train.json"
+export RUN_CONFIG_PATH="configs/bg_intervention_train_val.json"
 jupyter nbconvert --to notebook --execute ./jaguar-ident.ipynb
