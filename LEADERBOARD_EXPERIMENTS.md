@@ -1,5 +1,7 @@
 # Leaderboard Experiments
 
+WandB Project: [https://wandb.ai/linus-loell/jaguar-reid-linus-loell/]
+
 ## Requirements
 **Q5:** I compared multiple backbones (for example, ResNet18 vs DINOv3 vs EfficientNet vs MegaDescriptor). How is this scored?
 Ruling: One experiment. Score depends on control and analysis, plus backbone-count bonus.
@@ -51,21 +53,7 @@ Mean and standard deviation across seeds for top contenders
 Interpretation: why the best choice fits this task (regularization, noisy gradients, batch size effects)
 
 
-## 1. Which Backbone is best?
-
-Foundations:
-
-- Megadescriptor
-- DINOv3
-- ConvNeXt v2: facebook/convnextv2-tiny-22k-224
-- SwinTransformers
-
-Lightweight:
-
-- NFNet
-- EfficientNet
-- MobileNet v3
-- ResNet18
+## 1. Backbone comparison
 
 ### report:
 
@@ -73,22 +61,52 @@ Why these backbones
 Table: mAP and efficiency metrics
 Interpretation: what characteristics matter and why
 
+### Test Setup
+- backbone model: variable
+- loss function: ArcFace
+- LR-scheduler: reduce on plateu
+- base LR: 1e-4
+- optimizer: AdamW
+- weight decay: 1e-4
+
+
 ### Results
 
-| Model Name | HF Path | Parameters | MAP |
+| WandB Run | HF Path | Parameters | MAP |
 |---|---|---|---|
-| Megadescriptor | BVRA/MegaDescriptor-L-384 | 195,198,516 | 0.7723 |
-| DINOv3 | facebook/dinov3-vitl16-pretrain-lvd1689m | 303,129,600 | 0.8923 |
-| ConvNeXt v2 | facebook/convnextv2-tiny-22k-224 | 27,866,496 | 0.7302 |
-| Swin Transformer | microsoft/swin-tiny-patch4-window7-224 | 27,519,354 | 0.7507 |
-| EfficientNet | google/efficientnet-b7 | 63,786,960 | 0.8329 |
-| ResNet18 | microsoft/resnet-18 | 11,176,512 | 0.6531 |
+| [Megadescriptor](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/47zq6bkj) | BVRA/MegaDescriptor-L-384 | 195,198,516 | 0.7723 |
+| [DINOv3](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/7hnwafmx) | facebook/dinov3-vitl16-pretrain-lvd1689m | 303,129,600 | 0.8923 |
+| [ConvNeXt v2](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/48uwne32) | facebook/convnextv2-tiny-22k-224 | 27,866,496 | 0.7302 |
+| [Swin Transformer](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/f5fv3fff) | microsoft/swin-tiny-patch4-window7-224 | 27,519,354 | 0.7507 |
+| [EfficientNet](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/0byg06qo) | google/efficientnet-b7 | 63,786,960 | 0.8329 |
+| [ResNet18](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/b8ou0tqc) | microsoft/resnet-18 | 11,176,512 | 0.6531 |
 
 
-# wich optimizer is best?
+## 2. LR-scheduler comparison
 
-# wich LR-scheduler is best?
-- reduce on plateu (baseline)
-- exponential
-- cosine annealing
-- step decay
+### Test Setup
+- backbone model: hf-hub:BVRA/MegaDescriptor-L-384
+- loss function: ArcFace
+- optimizer: AdamW
+- batch size: 32
+- epochs: 50
+- weight decay: 1e-4
+- seed: 42
+- baseline scheduler config: reduce_on_plateau with factor=0.5, patience=5
+
+### Results
+
+| WandB Run | LR Scheduler | Scheduler Hyperparameters | Base LR | Best Epoch | MAP |
+|---|---|---|---|---|---|
+| [Reduce on Plateau (baseline)](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/47zq6bkj) | reduce_on_plateau | mode=min, factor=0.5, patience=5 | 1e-4 | 49 | 0.7723 |
+| [Cosine](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/n9tm0w3h) | cosine | T_max=50, eta_min=1e-6 | 3e-4 | 28 | 0.7820 |
+| [Cosine Warmup](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/keclfwbf) | cosine_warmup | warmup_epochs=5, warmup_start_factor=0.1, T_max=45, eta_min=1e-6 | 3e-4 | 32 | 0.7860 |
+| [Step Decay](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/3b9l1w0e) | step | step_size=15, gamma=0.1 | 1e-4 | 50 | 0.6549 |
+| [Exponential](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/w5uhwgyo) | exponential | gamma=0.9 | 1e-4 | 50 | 0.5786 |
+
+Notes:
+- Cosine and cosine_warmup runs used a higher base LR (3e-4) than reduce_on_plateau, step, and exponential (1e-4), so this is a scheduler-first comparison with LR coupling.
+- Runtime is the W&B run runtime and useful as a coarse efficiency indicator; best epoch indicates convergence speed.
+
+
+## 3. Optimizer comparison
