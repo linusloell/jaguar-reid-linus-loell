@@ -2,11 +2,11 @@
 
 ### W&B Tracking
 
-- [ ] Minimum experiments logged (12 for teams, 6 for solo)
-- [ ] All hyperparameters logged including number of model parameters
-- [ ] Training/validation metrics tracked
+- [X] Minimum experiments logged (12 for teams, 6 for solo)
+- [X] All hyperparameters logged including number of model parameters
+- [X] Training/validation metrics tracked
 - [ ] Project shared with instructors or set to public
-- [ ] Clear run naming convention
+- [X] Clear run naming convention
 
 ### Kaggle Notebooks
 
