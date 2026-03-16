@@ -1,6 +1,5 @@
 {
-    "run_name": "combined",
-    "challenge": "challenge1",
+    "run_name": "bg_intervention_train_val",
     "data_dir": "data/challenge1",
     "checkpoint_dir": "checkpoints",
     "model": "facebook/dinov3-vitl16-pretrain-lvd1689m",
@@ -26,5 +25,7 @@
     "num_epochs": 70,
     "patience": 10,
     "val_split": 0.2,
-    "seed": 42
+    "seed": 42,
+    "train_bg_intervention": "noise",
+    "val_bg_intervention": "noise"
 }

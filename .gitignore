@@ -2,7 +2,9 @@
 data
 notebooks/wandb
 wandb
+.venv
 notebooks/__pycache__
+__pycache__
 notebooks/checkpoints
 checkpoints
 embeddings

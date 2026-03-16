@@ -1,5 +1,5 @@
 {
-    "run_name": "combined",
+    "run_name": "c2-dinov3-cosine",
     "challenge": "challenge2",
     "data_dir": "data/challenge2",
     "checkpoint_dir": "checkpoints",
