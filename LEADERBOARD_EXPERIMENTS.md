@@ -132,7 +132,7 @@ TODO:
 
 When training the classification head, choosing the right Learning Rate Scheduler can help stabilize training and avoid local minimums.
 I decided to compare the reduce on plateau scheduler from the baseline notebook with 3 other common schedulers: Cosine Annealing, Step Decay and Exponential.
-Because the model uses ArcFace loss, which includes learnable parameters, I decided to also add a version of Cosine Annealing with a warmup period. For the first 5 epochs the LR is increased linear to stabilize the training. after Epoch 5 a Cosine Annealing Schduler is used.
+Because the model uses ArcFace loss, which includes learnable parameters, I decided to also add a version of Cosine Annealing with a warmup period. For the first 5 epochs the learning rate (LR) is increased linear to stabilize the training. after Epoch 5 a Cosine Annealing Schduler is used.
 
 ### Test Setup
 
@@ -170,11 +170,17 @@ TODO
 
 ## 3. Optimizer comparison
 
+Using the best performing LR-Scheduler from the previous experiment (Cosine Annealing with warmup) I wanted to improve training performance further by testing different optimizers.
+I decided to use the previous run with AdamW as a baseline and compare it to Stochastic Gradient Decent (SDG) and Momentum Orthogonalized Neighbor (Muon).
+Because Muon is not designed for embedding and output layers, the last two layers (p.ndim < 2) where optimized using AdamW.
+
 ### Test Setup
 
 - backbone model: `hf-hub:BVRA/MegaDescriptor-L-384`
 - loss function: ArcFace
-- LR scheduler: `cosine_warmup`
+- LR scheduler: cosine annealing with warmup
+- warmup epochs: 5
+- base LR: 3e-4
 - batch size: 32
 - epochs: 50
 - train/val split: 0.8 / 0.2
@@ -185,26 +191,35 @@ The specific configuration files for each run are:
 
 ### Results
 
-| WandB Run                                                                            | Optimizer | LR Scheduler  | Seed | MAP    | Min Val Loss |
-| ------------------------------------------------------------------------------------ | --------- | ------------- | ---- | ------ | ------------ |
-| [AdamW baseline](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/keclfwbf) | adamw     | cosine_warmup | 42   | 0.7860 | 4.4752       |
-| [Muon](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/yq7zon1d)           | muon      | cosine_warmup | 42   | 0.8106 | 4.0503       |
-| [SGD](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/ambrikzt)            | sgd       | cosine_warmup | 42   | 0.6608 | 7.4874       |
+| WandB Run                                                                            | LR Scheduler  | Seed | Best mAP Epoch | MAP    | Min Val Loss |
+| ------------------------------------------------------------------------------------ | ------------- | ---- | -------------- | ------ | ------------ |
+| [AdamW baseline](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/keclfwbf) | cosine_warmup | 42   | 32             | 0.7860 | 4.4752       |
+| [Muon](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/yq7zon1d)           | cosine_warmup | 42   | 13             | 0.8106 | 4.0503       |
+| [SGD](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/ambrikzt)            | cosine_warmup | 42   | 50             | 0.6608 | 7.4874       |
 
-- With the cosine-warmup AdamW baseline as reference, Muon improves over AdamW by +0.0246 mAP, while SGD underperforms AdamW by -0.1252 mAP.
+![optimizer wandb report](img/optimizer-wandb.png)
+
+### Conclusion
+
+- Muon improves over AdamW by +0.0246 mAP, while SGD underperforms AdamW by -0.1252 mAP.
+- Muon converges way faster
+- SGD might need more epochs
 
 ## 4. Validation of best experiment over multiple random seeds
 
-### Repeated-Seed Setup
+After experimentation the best performing model on the second Kaggle challenge used a DinoV3 backend, ArcFace as a loss function, Cosine Annealing with warmup as LR-scheduler, and muon as an optimizer. To validate the stability of the model I trained it 8 times using different seeds.
 
-- config: `c2-dinov3-cosine-muon`
+### Setup
+
+The model was always configured the same:
+
 - backbone model: `facebook/dinov3-vitl16-pretrain-lvd1689m`
 - optimizer: muon
 - LR scheduler: cosine_warmup
 - loss function: ArcFace
 
 The repeated runs all use the same configuration file:
-[c2-dinov3-cosine-muon](configs/c2-dinov3-cosine-muon.json).
+[c2-dinov3-cosine-muon](configs/c2-dinov3-cosine-muon.json), but had a different seeds set using an environment variable.
 
 ### Results (8 seeds)
 
@@ -219,6 +234,12 @@ The repeated runs all use the same configuration file:
 | [seed 48](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/ktmsa0o1) | 48   | 0.8887 | 2.6978       |
 | [seed 49](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/utjb3ain) | 49   | 0.8995 | 2.3680       |
 
+![stability wandb report](img/stability-wandb.png)
+
 - Mean mAP: 0.8802
 - Std mAP: 0.0202
 - Interpretation: the result is strong on average, but variance is non-trivial and should be reported with the mean.
+
+### conclusion
+
+TODO
