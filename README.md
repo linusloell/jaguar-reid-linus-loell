@@ -2,13 +2,13 @@
 
 ## Purpose
 
-This repository test different configurations for a classification model on images of jaguar from the Pantanal National park. The challenge was presented in two Kaggle challenges: [Jaguar Re-Id](https://www.kaggle.com/competitions/jaguar-re-id) and [Round 2: Jaguar Re-Id](https://www.kaggle.com/competitions/round-2-jaguar-reidentification-challenge/)
+This repository test different configurations for a classification model on images of jaguar from the Pantanal National park. The challenge was presented in two Kaggle competitions: [Jaguar Re-Id](https://www.kaggle.com/competitions/jaguar-re-id) and [Round 2: Jaguar Re-Id](https://www.kaggle.com/competitions/round-2-jaguar-reidentification-challenge/)
 
 ## Experiments
 
 All experiments conducted are documented in [EDA_experiments.md](EDA_experiments.md) and [LEADERBOARD_EXPERIMENTS.md](LEADERBOARD_EXPERIMENTS.md)
 
-The runs where logged to [Weights and Biases](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/) and a overview of all experiment data can be found in the [wandb report](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/reports/Reports--VmlldzoxNjIzMzg0Ng)
+The runs where logged to [Weights and Biases](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/) and an overview of all experiment data can be found in the [wandb report](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/reports/Reports--VmlldzoxNjIzMzg0Ng)
 
 ## Notebook
 
