@@ -65,9 +65,8 @@ Mean and standard deviation of identity-balanced mAP across seeds
 Interpretation:
 If the standard deviation is small, the result supports the claim of improvement
 If the standard deviation is large, the result indicates instability and limits the strength of the claim
-Add this as Q23, and renumber the current Edge cases question from Q23 → Q24.
 
-## 1. Backbone comparison
+## 1. Backbone Comparison
 
 One of the first experiments I did, was using different backbone models to compute the embeddings used as input for the classification head. The classification head relies completely on the information encoded in the embeddings. Therefore using a backbone model that extracts more relevant information should improve the overall performance drastically.
 
@@ -122,9 +121,22 @@ The specific configuration files for each run are:
 
 ### Conclusion
 
-## 2. LR-scheduler comparison
+TODO:
+
+- correlation no. param and performance
+- DinoV3 and eficientNet very good
+- Dino: modern architecture and large training dataset + large model
+- EfficientNet: maybe: large embedding size?
+
+## 2. Learning Rate Scheduler Comparison
+
+When training the classification head, choosing the right Learning Rate Scheduler can help stabilize training and avoid local minimums.
+I decided to compare the reduce on plateau scheduler from the baseline notebook with 3 other common schedulers: Cosine Annealing, Step Decay and Exponential.
+Because the model uses ArcFace loss, which includes learnable parameters, I decided to also add a version of Cosine Annealing with a warmup period. For the first 5 epochs the LR is increased linear to stabilize the training. after Epoch 5 a Cosine Annealing Schduler is used.
 
 ### Test Setup
+
+For all models a uniform testing setup was used:
 
 - backbone model: hf-hub:BVRA/MegaDescriptor-L-384
 - loss function: ArcFace
@@ -135,6 +147,8 @@ The specific configuration files for each run are:
 - seed: 42
 - baseline scheduler config: reduce_on_plateau with factor=0.5, patience=5
 
+I decided to increase the starting LR rate for the Cosine Annealing scheduler to 3e-4 (from 1e-4), because the LR drops quickly after a few epochs. In retrospect do I believe that I should have tested 2 runs per scheduler. One with each LR.
+
 The specific configuration files for each run are:
 [Reduce on Plateau](configs/baseline.json), [Cosine](configs/lr-scheduler-cosine.json), [Cosine Warmup](configs/lr-scheduler-cosine-warmup.json), [Step Decay](configs/lr-scheduler-step.json), [Exponential](configs/lr-scheduler-exponential.json).
 
@@ -143,40 +157,41 @@ The specific configuration files for each run are:
 | WandB Run                                                                                          | LR Scheduler      | Scheduler Hyperparameters                                        | Base LR | Best Epoch | MAP    | Min Val Loss |
 | -------------------------------------------------------------------------------------------------- | ----------------- | ---------------------------------------------------------------- | ------- | ---------- | ------ | ------------ |
 | [Reduce on Plateau (baseline)](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/47zq6bkj) | reduce_on_plateau | mode=min, factor=0.5, patience=5                                 | 1e-4    | 49         | 0.7723 | 4.7830       |
-| [Cosine](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/n9tm0w3h)                       | cosine            | T_max=50, eta_min=1e-6                                           | 3e-4    | 28         | 0.7820 | 4.4786       |
-| [Cosine Warmup](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/keclfwbf)                | cosine_warmup     | warmup_epochs=5, warmup_start_factor=0.1, T_max=45, eta_min=1e-6 | 3e-4    | 32         | 0.7860 | 4.4752       |
+| [Cosine Annealing](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/n9tm0w3h)             | cosine            | T_max=50, eta_min=1e-6                                           | 3e-4    | 28         | 0.7820 | 4.4786       |
+| [Cosine Annealing with Warmup](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/keclfwbf) | cosine_warmup     | warmup_epochs=5, warmup_start_factor=0.1, T_max=45, eta_min=1e-6 | 3e-4    | 32         | 0.7860 | 4.4752       |
 | [Step Decay](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/3b9l1w0e)                   | step              | step_size=15, gamma=0.1                                          | 1e-4    | 50         | 0.6549 | 8.1010       |
 | [Exponential](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/w5uhwgyo)                  | exponential       | gamma=0.9                                                        | 1e-4    | 50         | 0.5786 | 11.4150      |
 
-![image](img/lr-schedulers.png)
+![WandB report LR schedulers](img/lr-schedulers-wandb.png)
 
-- Runtime is the W&B run runtime and useful as a coarse efficiency indicator; best epoch indicates convergence speed.
+### Conclusion
+
+TODO
 
 ## 3. Optimizer comparison
 
 ### Test Setup
 
-- backbone model: `facebook/dinov3-vitl16-pretrain-lvd1689m`
+- backbone model: `hf-hub:BVRA/MegaDescriptor-L-384`
 - loss function: ArcFace
-- LR scheduler: cosine_warmup
+- LR scheduler: `cosine_warmup`
 - batch size: 32
-- epochs: 70
+- epochs: 50
 - train/val split: 0.8 / 0.2
 - seed: 42
 
 The specific configuration files for each run are:
-[AdamW baseline](configs/c2-dinov3-cosine.json), [Muon](configs/optimizer-muon.json), [SGD](configs/optimizer-sgd.json).
+[AdamW baseline](configs/lr-scheduler-cosine-warmup.json), [Muon](configs/optimizer-muon.json), [SGD](configs/optimizer-sgd.json).
 
 ### Results
 
 | WandB Run                                                                            | Optimizer | LR Scheduler  | Seed | MAP    | Min Val Loss |
 | ------------------------------------------------------------------------------------ | --------- | ------------- | ---- | ------ | ------------ |
-| [AdamW baseline](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/pr727ulw) | adamw     | cosine_warmup | 42   | 0.8589 | 2.7494       |
+| [AdamW baseline](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/keclfwbf) | adamw     | cosine_warmup | 42   | 0.7860 | 4.4752       |
 | [Muon](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/yq7zon1d)           | muon      | cosine_warmup | 42   | 0.8106 | 4.0503       |
 | [SGD](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/ambrikzt)            | sgd       | cosine_warmup | 42   | 0.6608 | 7.4874       |
 
-- Under this setup, AdamW gives the best identity-balanced mAP.
-- Muon underperforms AdamW by -0.0483 mAP; SGD underperforms AdamW by -0.1982 mAP.
+- With the cosine-warmup AdamW baseline as reference, Muon improves over AdamW by +0.0246 mAP, while SGD underperforms AdamW by -0.1252 mAP.
 
 ## 4. Validation of best experiment over multiple random seeds
 
