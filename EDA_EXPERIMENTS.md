@@ -1,6 +1,45 @@
-DinoV3 with RoPE (Rotary Positional Embeddings)?
-
 # EDA Experiments
+
+## Loss Function Comparison
+
+The baseline notebook provided adds a ArcFace Layer to the classification head that normalizes embeddings and is used in combination with Cross Entropy to compute the loss for training. I want to find out if this is necessary or can be replaced with a different loss function. Namely Cross Entropy (CE) or Focal loss.
+Cross Entropy is one of the simplest and loss functions and works generally well on most tasks. Focal loss works especially well on imbalanced datasets, which the jaguar-ident is.
+
+### Test Setup
+
+Because CE and Focal loss are computed on logits not embeddings, I replaced the ArcFace Layer with a linear layer. This produces the logits required to apply the loss function.
+
+Compare different metric learning and classification losses:
+
+| Loss              | Applied to | Head type         |
+| ----------------- | ---------- | ----------------- |
+| **ArcFace**       | Embeddings | ArcFaceLayer      |
+| **Cross Entropy** | Logits     | Linear classifier |
+| **Focal**         | Logits     | Linear classifier |
+
+The following model configuration has been used for the comparison:
+
+backbone: BVRA/MegaDescriptor-L-384
+LR-scheduler: reduce on plateau
+base LR: 1e-4
+optimizer: AdamW
+weight decay: 1e-4
+
+Config Files
+[ArcFace baseline](configs/baseline.json), [Cross Entropy](configs/loss-ce.json), [Focal](configs/loss-focal.json)
+
+### Run Comparison
+
+| WandB Run                                                                              | MAP    |
+| -------------------------------------------------------------------------------------- | ------ |
+| [ArcFace baseline](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/47zq6bkj) | 0.7743 |
+| [Cross Entropy](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/9qyuebig)    | 0.7480 |
+| [Focal](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/907nhx4l)            | 0.5459 |
+
+![wandb report loss functions](img/loss-wandb.png)
+
+- Ranking by mAP: ArcFace > CE > Focal > Sphere.
+- ArcFace shows the most stable and strongest retrieval performance in this controlled setup.
 
 ## Background Variation
 
@@ -34,46 +73,3 @@ The specific configuration files for each run are:
 - Delta vs baseline (train-only noise): -0.1426 mAP
 - Delta vs baseline (train+val noise): -0.0385 mAP
 - Interpretation: both noise interventions underperform the no-intervention baseline, with train-only noise causing a much larger drop.
-
-## Loss Functions
-
-### Loss Function Comparison
-
-Compare different metric learning and classification losses:
-
-| Loss        | Applied to                   | Head type         | Inference                                 |
-| ----------- | ---------------------------- | ----------------- | ----------------------------------------- |
-| **ArcFace** | Logits (normalized + margin) | ArcFaceLayer      | Normalized embeddings + cosine similarity |
-| **CE**      | Logits                       | Linear classifier | Embeddings + cosine similarity            |
-| **Focal**   | Logits                       | Linear classifier | Embeddings + cosine similarity            |
-
-Config Files
-[ArcFace baseline](configs/baseline.json), [Cross Entropy](configs/loss-ce.json), [Focal](configs/loss-focal.json)
-
-### Run Comparison
-
-| WandB Run                                                                              | Loss    | Seed | MAP    |
-| -------------------------------------------------------------------------------------- | ------- | ---- | ------ |
-| [ArcFace baseline](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/47zq6bkj) | arcface | 42   | 0.7743 |
-| [Cross-Entropy](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/9qyuebig)    | ce      | 42   | 0.7480 |
-| [Focal](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/907nhx4l)            | focal   | 42   | 0.5459 |
-
-- Ranking by mAP: ArcFace > CE > Focal > Sphere.
-- ArcFace shows the most stable and strongest retrieval performance in this controlled setup.
-
-Validity requirements:
-
-- Controlled comparison (same backbone, schedule, augmentations, embedding dimension, evaluation)
-- Report identity-balanced mAP and training stability notes
-- Interpretation of why the better loss fits this dataset
-
-Apply only if the experiment meets the Valid (1.0) bar.
-
-- 2 loss functions: 1.00
-- 3 loss functions: 1.50
-- 4 loss functions: 2.00
-- 5 loss functions: 2.50
-- 6 loss functions: 3.00
-- 7 loss functions: 3.50
-- 8 loss functions: 4.00
-  Cap: 4.00 (8 or more losses)
