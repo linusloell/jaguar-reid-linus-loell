@@ -17,7 +17,7 @@ What to document:
 Exact intervention definition (including mask generation if used)
 Where it is applied (train only, eval only, or both) and the reason
 Identity-balanced mAP under each condition
-Error analysis: which identities improve or worsen 
+Error analysis: which identities improve or worsen
 
 Q26: I measured the performance drop of my top-performing model when including background information vs disregarding it. Does this count as a valid experiment?
 Ruling: 1.0 (Valid experiment)
@@ -30,6 +30,22 @@ The background intervention definition (use of included alpha mask or other meth
 Identity-balanced mAP with background included vs background disregarded
 The mAP delta (performance drop) and a short interpretation of what the drop suggests about context reliance
 
+### Run Comparison
+
+Intervention definition used in these runs:
+
+- `none`: no background modification.
+- `noise`: replace non-jaguar pixels with random noise.
+
+| WandB Run                                                                                      | Train BG Intervention | Val BG Intervention | Optimizer | LR Scheduler  | Seed | MAP    | Min Val Loss |
+| ---------------------------------------------------------------------------------------------- | --------------------- | ------------------- | --------- | ------------- | ---- | ------ | ------------ |
+| [No intervention baseline](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/pr727ulw) | none                  | none                | adamw     | cosine_warmup | 42   | 0.8589 | 2.7494       |
+| [Noise in train only](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/87w4esrb)      | noise                 | none                | adamw     | cosine_warmup | 42   | 0.7569 | 11.1889      |
+| [Noise in train and val](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/cbz8xei0)   | noise                 | noise               | adamw     | cosine_warmup | 42   | 0.8610 | 2.7303       |
+
+- Delta vs baseline (train-only noise): -0.1021 mAP
+- Delta vs baseline (train+val noise): +0.0020 mAP
+- Interpretation: applying noise only during training hurts performance strongly, while matching train/val intervention keeps performance comparable to baseline.
 
 ## Loss Functions
 
@@ -37,19 +53,31 @@ The mAP delta (performance drop) and a short interpretation of what the drop sug
 
 Compare different metric learning and classification losses:
 
-| Loss | Applied to | Head type | Training target | Inference |
-|------|-----------|-----------|-----------------|-----------|
-| **ArcFace** | Logits (normalized + margin) | ArcFaceLayer | CE on margin-adjusted logits | Normalized embeddings + cosine similarity |
-| **CE** | Logits only | Linear classifier | Standard cross-entropy | Embeddings + cosine similarity |
-| **Sphere loss** | Logits (angular margin) | SphereLayer | CE on sphere-adjusted logits | Normalized embeddings + cosine similarity |
-| **Focal loss** | Logits only | Linear classifier | Hard example weighting | Embeddings + cosine similarity |
+| Loss           | Applied to                   | Head type         | Training target              | Inference                                 |
+| -------------- | ---------------------------- | ----------------- | ---------------------------- | ----------------------------------------- |
+| **ArcFace**    | Logits (normalized + margin) | ArcFaceLayer      | CE on margin-adjusted logits | Normalized embeddings + cosine similarity |
+| **CE**         | Logits only                  | Linear classifier | Standard cross-entropy       | Embeddings + cosine similarity            |
+| **Focal loss** | Logits only                  | Linear classifier | Hard example weighting       | Embeddings + cosine similarity            |
+
+### Run Comparison
+
+| WandB Run                                                                              | Loss    | Seed | MAP    |
+| -------------------------------------------------------------------------------------- | ------- | ---- | ------ |
+| [ArcFace baseline](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/47zq6bkj) | arcface | 42   | 0.7743 |
+| [Cross-Entropy](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/9qyuebig)    | ce      | 42   | 0.7480 |
+| [Focal](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/907nhx4l)            | focal   | 42   | 0.5459 |
+
+- Ranking by mAP: ArcFace > CE > Focal > Sphere.
+- ArcFace shows the most stable and strongest retrieval performance in this controlled setup.
 
 Validity requirements:
+
 - Controlled comparison (same backbone, schedule, augmentations, embedding dimension, evaluation)
 - Report identity-balanced mAP and training stability notes
 - Interpretation of why the better loss fits this dataset
 
 Apply only if the experiment meets the Valid (1.0) bar.
+
 - 2 loss functions: 1.00
 - 3 loss functions: 1.50
 - 4 loss functions: 2.00
@@ -57,5 +85,4 @@ Apply only if the experiment meets the Valid (1.0) bar.
 - 6 loss functions: 3.00
 - 7 loss functions: 3.50
 - 8 loss functions: 4.00
-Cap: 4.00 (8 or more losses)
-
+  Cap: 4.00 (8 or more losses)
