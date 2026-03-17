@@ -30,15 +30,15 @@ Config Files
 
 ### Run Comparison
 
-| WandB Run                                                                              | MAP    |
-| -------------------------------------------------------------------------------------- | ------ |
-| [ArcFace baseline](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/47zq6bkj) | 0.7743 |
-| [Cross Entropy](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/9qyuebig)    | 0.7480 |
-| [Focal](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/907nhx4l)            | 0.5459 |
+| WandB Run                                                                              | best val MAP |
+| -------------------------------------------------------------------------------------- | ------------ |
+| [ArcFace baseline](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/47zq6bkj) | 0.7723       |
+| [Cross Entropy](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/9qyuebig)    | 0.7363       |
+| [Focal](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/907nhx4l)            | 0.5459       |
 
 ![wandb report loss functions](img/loss-wandb.png)
 
-- Ranking by mAP: ArcFace > CE > Focal > Sphere.
+- Ranking by best val mAP: ArcFace > CE > Focal > Sphere.
 - ArcFace shows the most stable and strongest retrieval performance in this controlled setup.
 
 ## Background Variation
@@ -75,16 +75,16 @@ Intervention definition used in these runs:
 - `none`: no background modification.
 - `noise`: replace non-jaguar pixels with random noise.
 
-| WandB Run                                                                                                      | Train BG Intervention | Val BG Intervention | Optimizer | LR Scheduler  | Seed | MAP    | Min Val Loss |
-| -------------------------------------------------------------------------------------------------------------- | --------------------- | ------------------- | --------- | ------------- | ---- | ------ | ------------ |
-| [No intervention baseline (dinov3-cosine)](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/6b3ju9n1) | none                  | none                | adamw     | cosine_warmup | 42   | 0.8994 | 1.8889       |
-| [Noise in train only](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/87w4esrb)                      | noise                 | none                | adamw     | cosine_warmup | 42   | 0.7569 | 11.1889      |
-| [Noise in train and val](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/cbz8xei0)                   | noise                 | noise               | adamw     | cosine_warmup | 42   | 0.8610 | 2.7303       |
+| WandB Run                                                                                                      | Train BG Intervention | Val BG Intervention | Best Val MAP | Min Val Loss |
+| -------------------------------------------------------------------------------------------------------------- | --------------------- | ------------------- | ------------ | ------------ |
+| [No intervention baseline (dinov3-cosine)](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/6b3ju9n1) | none                  | none                | 0.9066       | 1.8889       |
+| [Noise in train only](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/87w4esrb)                      | noise                 | none                | 0.7621       | 11.1889      |
+| [Noise in train and val](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/cbz8xei0)                   | noise                 | noise               | 0.8619       | 2.7303       |
 
 ![wandb report bg intervention](img/bg-intervention-wandb.png)
 
-- Delta vs baseline (train-only noise): -0.1426 mAP
-- Delta vs baseline (train+val noise): -0.0385 mAP
+- Delta vs baseline (train-only noise): -0.1445 best val mAP
+- Delta vs baseline (train+val noise): -0.0447 best val mAP
 
 ### Conclusion
 

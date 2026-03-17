@@ -108,14 +108,14 @@ The specific configuration files for each run are:
 
 ### Results
 
-| WandB Run                                                                              | HF Path                                  | Parameters  | Backbone Embedding Dim | MAP    | Min Val Loss |
-| -------------------------------------------------------------------------------------- | ---------------------------------------- | ----------- | ---------------------- | ------ | ------------ |
-| [Megadescriptor](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/47zq6bkj)   | BVRA/MegaDescriptor-L-384                | 195,198,516 | 1536                   | 0.7723 | 4.7830       |
-| [DINOv3](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/7hnwafmx)           | facebook/dinov3-vitl16-pretrain-lvd1689m | 303,129,600 | 1024                   | 0.8923 | 2.2992       |
-| [ConvNeXt v2](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/48uwne32)      | facebook/convnextv2-tiny-22k-224         | 27,866,496  | 768                    | 0.7302 | 5.9024       |
-| [Swin Transformer](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/f5fv3fff) | microsoft/swin-tiny-patch4-window7-224   | 27,519,354  | 768                    | 0.7507 | 5.4399       |
-| [EfficientNet](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/0byg06qo)     | google/efficientnet-b7                   | 63,786,960  | 2560                   | 0.8329 | 3.5640       |
-| [ResNet18](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/b8ou0tqc)         | microsoft/resnet-18                      | 11,176,512  | 512                    | 0.6531 | 8.3584       |
+| WandB Run                                                                              | HF Path                                  | Parameters  | Backbone Embedding Dim | Best Val MAP | Min Val Loss |
+| -------------------------------------------------------------------------------------- | ---------------------------------------- | ----------- | ---------------------- | ------------ | ------------ |
+| [Megadescriptor](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/47zq6bkj)   | BVRA/MegaDescriptor-L-384                | 195,198,516 | 1536                   | 0.7723       | 4.7830       |
+| [DINOv3](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/7hnwafmx)           | facebook/dinov3-vitl16-pretrain-lvd1689m | 303,129,600 | 1024                   | 0.8923       | 2.2992       |
+| [ConvNeXt v2](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/48uwne32)      | facebook/convnextv2-tiny-22k-224         | 27,866,496  | 768                    | 0.7302       | 5.9024       |
+| [Swin Transformer](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/f5fv3fff) | microsoft/swin-tiny-patch4-window7-224   | 27,519,354  | 768                    | 0.7507       | 5.4399       |
+| [EfficientNet](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/0byg06qo)     | google/efficientnet-b7                   | 63,786,960  | 2560                   | 0.8329       | 3.5640       |
+| [ResNet18](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/b8ou0tqc)         | microsoft/resnet-18                      | 11,176,512  | 512                    | 0.6531       | 8.3584       |
 
 ![WandB report backbones](./img/backbones_wandb.png)
 
@@ -154,13 +154,13 @@ The specific configuration files for each run are:
 
 ### Results
 
-| WandB Run                                                                                          | LR Scheduler      | Scheduler Hyperparameters                                        | Base LR | Best Epoch | MAP    | Min Val Loss |
-| -------------------------------------------------------------------------------------------------- | ----------------- | ---------------------------------------------------------------- | ------- | ---------- | ------ | ------------ |
-| [Reduce on Plateau (baseline)](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/47zq6bkj) | reduce_on_plateau | mode=min, factor=0.5, patience=5                                 | 1e-4    | 49         | 0.7723 | 4.7830       |
-| [Cosine Annealing](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/n9tm0w3h)             | cosine            | T_max=50, eta_min=1e-6                                           | 3e-4    | 28         | 0.7820 | 4.4786       |
-| [Cosine Annealing with Warmup](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/keclfwbf) | cosine_warmup     | warmup_epochs=5, warmup_start_factor=0.1, T_max=45, eta_min=1e-6 | 3e-4    | 32         | 0.7860 | 4.4752       |
-| [Step Decay](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/3b9l1w0e)                   | step              | step_size=15, gamma=0.1                                          | 1e-4    | 50         | 0.6549 | 8.1010       |
-| [Exponential](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/w5uhwgyo)                  | exponential       | gamma=0.9                                                        | 1e-4    | 50         | 0.5786 | 11.4150      |
+| WandB Run                                                                                          | LR Scheduler      | Scheduler Hyperparameters                                        | Base LR | Best Epoch | Best Val MAP | Min Val Loss |
+| -------------------------------------------------------------------------------------------------- | ----------------- | ---------------------------------------------------------------- | ------- | ---------- | ------------ | ------------ |
+| [Reduce on Plateau (baseline)](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/47zq6bkj) | reduce_on_plateau | mode=min, factor=0.5, patience=5                                 | 1e-4    | 49         | 0.7723       | 4.7830       |
+| [Cosine Annealing](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/n9tm0w3h)             | cosine            | T_max=50, eta_min=1e-6                                           | 3e-4    | 28         | 0.7820       | 4.4786       |
+| [Cosine Annealing with Warmup](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/keclfwbf) | cosine_warmup     | warmup_epochs=5, warmup_start_factor=0.1, T_max=45, eta_min=1e-6 | 3e-4    | 32         | 0.7860       | 4.4752       |
+| [Step Decay](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/3b9l1w0e)                   | step              | step_size=15, gamma=0.1                                          | 1e-4    | 50         | 0.6549       | 8.1010       |
+| [Exponential](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/w5uhwgyo)                  | exponential       | gamma=0.9                                                        | 1e-4    | 50         | 0.5786       | 11.4150      |
 
 ![WandB report LR schedulers](img/lr-schedulers-wandb.png)
 
@@ -191,17 +191,17 @@ The specific configuration files for each run are:
 
 ### Results
 
-| WandB Run                                                                            | LR Scheduler  | Seed | Best mAP Epoch | MAP    | Min Val Loss |
-| ------------------------------------------------------------------------------------ | ------------- | ---- | -------------- | ------ | ------------ |
-| [AdamW baseline](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/keclfwbf) | cosine_warmup | 42   | 32             | 0.7860 | 4.4752       |
-| [Muon](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/yq7zon1d)           | cosine_warmup | 42   | 13             | 0.8106 | 4.0503       |
-| [SGD](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/ambrikzt)            | cosine_warmup | 42   | 50             | 0.6608 | 7.4874       |
+| WandB Run                                                                            | LR Scheduler  | Seed | Best mAP Epoch | Best Val MAP | Min Val Loss |
+| ------------------------------------------------------------------------------------ | ------------- | ---- | -------------- | ------------ | ------------ |
+| [AdamW baseline](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/keclfwbf) | cosine_warmup | 42   | 32             | 0.7860       | 4.4752       |
+| [Muon](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/yq7zon1d)           | cosine_warmup | 42   | 13             | 0.8117       | 4.0503       |
+| [SGD](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/ambrikzt)            | cosine_warmup | 42   | 50             | 0.6608       | 7.4874       |
 
 ![optimizer wandb report](img/optimizer-wandb.png)
 
 ### Conclusion
 
-- Muon improves over AdamW by +0.0246 mAP, while SGD underperforms AdamW by -0.1252 mAP.
+- Muon improves over AdamW by +0.0257 best val mAP, while SGD underperforms AdamW by -0.1252 best val mAP.
 - Muon converges way faster
 - SGD might need more epochs
 
@@ -223,21 +223,21 @@ The repeated runs all use the same configuration file:
 
 ### Results (8 seeds)
 
-| WandB Run                                                                     | Seed | MAP    | Min Val Loss |
-| ----------------------------------------------------------------------------- | ---- | ------ | ------------ |
-| [seed 42](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/e7lxwr6h) | 42   | 0.8602 | 2.3953       |
-| [seed 43](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/ccwjpasy) | 43   | 0.9105 | 2.0080       |
-| [seed 44](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/yi8yjzrf) | 44   | 0.8559 | 2.5414       |
-| [seed 45](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/3it20ttu) | 45   | 0.8777 | 2.2253       |
-| [seed 46](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/ok25h1d3) | 46   | 0.8950 | 1.9271       |
-| [seed 47](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/rl3rqevm) | 47   | 0.8539 | 3.4035       |
-| [seed 48](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/ktmsa0o1) | 48   | 0.8887 | 2.6978       |
-| [seed 49](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/utjb3ain) | 49   | 0.8995 | 2.3680       |
+| WandB Run                                                                     | Seed | Best Val MAP | Min Val Loss |
+| ----------------------------------------------------------------------------- | ---- | ------------ | ------------ |
+| [seed 42](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/e7lxwr6h) | 42   | 0.8646       | 2.3953       |
+| [seed 43](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/ccwjpasy) | 43   | 0.9234       | 2.0080       |
+| [seed 44](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/yi8yjzrf) | 44   | 0.8547       | 2.5414       |
+| [seed 45](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/3it20ttu) | 45   | 0.8858       | 2.2253       |
+| [seed 46](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/ok25h1d3) | 46   | 0.9002       | 1.9271       |
+| [seed 47](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/rl3rqevm) | 47   | 0.8358       | 3.4035       |
+| [seed 48](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/ktmsa0o1) | 48   | 0.8821       | 2.6978       |
+| [seed 49](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/utjb3ain) | 49   | 0.8918       | 2.3680       |
 
 ![stability wandb report](img/stability-wandb.png)
 
-- Mean mAP: 0.8802
-- Std mAP: 0.0202
+- Mean best val mAP: 0.8798
+- Std best val mAP: 0.0257
 - Interpretation: the result is strong on average, but variance is non-trivial and should be reported with the mean.
 
 ### conclusion
