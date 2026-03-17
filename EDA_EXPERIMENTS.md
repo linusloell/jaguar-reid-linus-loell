@@ -38,8 +38,16 @@ Config Files
 
 ![wandb report loss functions](img/loss-wandb.png)
 
-- Ranking by best val mAP: ArcFace > CE > Focal > Sphere.
-- ArcFace shows the most stable and strongest retrieval performance in this controlled setup.
+### Conclusion
+
+Cross Entropy as well as Focal loss could not improve on ArcFace in this case. While Cross Entropy came close to ArcFace with a mAP of 0.7363 (−4.7%) but Focus only achieved a 0.5459 mAP.
+
+This suggest that the ArcFace layer helped in improving the classification performance compared the the linear layer added for Cross Entropy and Focal loss.
+The high accuracy but lower mAP of Cross Entropy might be a clue that ArcFace plays a role in discriminating embeddings of different classes while still keeping embeddings of the same class close together.
+
+The learning curves of focal loss could indicate that the model was still learning after 50 epochs and increasing the number of training epochs might improve the final model performance. I take this conlclusion from the fact that the val_map was still increasing and loss still falling at epoch 50.
+
+For a combined best approach I will keep this using ArcFace as a loss function.
 
 ## Background Variation
 
@@ -83,9 +91,10 @@ Intervention definition used in these runs:
 
 ![wandb report bg intervention](img/bg-intervention-wandb.png)
 
-- Delta vs baseline (train-only noise): -0.1445 best val mAP
-- Delta vs baseline (train+val noise): -0.0447 best val mAP
-
 ### Conclusion
 
-- Interpretation: both noise interventions underperform the no-intervention baseline, with train-only noise causing a much larger drop.
+From the mAP values shown in the result we can clearly see that model, at least partly relies on the background for classification.
+
+While the model trained on images with background managed to achieve a mAP of 0.9066, the same configuration trained on images with the background removed only achieved a 0.8619 mAP.
+
+The low accuracy and mAP of the second run can be explained with the stark difference between train and validation images.

@@ -4,68 +4,6 @@ WandB Project: [https://wandb.ai/linus-loell/jaguar-reid-linus-loell/]
 
 ## Requirements
 
-**Q5:** I compared multiple backbones (for example, ResNet18 vs DINOv3 vs EfficientNet vs MegaDescriptor). How is this scored?
-Ruling: One experiment. Score depends on control and analysis, plus backbone-count bonus.
-Where to document this: LEADERBOARD_EXPERIMENTS.md (optional deeper diagnostics in EDA with cross-reference)
-
-Base requirements:
-Same training protocol, loss, schedule, augmentation, evaluation
-Same embedding dimension (or justification)
-Report mAP and at least one efficiency metric
-
-Scoring for backbone comparison:
-Base score: 1.0 if Valid criteria are met
-Bonus: +0.20 per backbone included in the controlled comparison
-2 backbones: 1.20
-3 backbones: 1.40
-4 backbones: 1.60
-5 or more backbones: 2.00 (cap)
-
-What to document:
-Why these backbones
-Table: mAP and efficiency metrics
-Interpretation: what characteristics matter and why
-
-**Q23:** I compared different optimizers (Adam, AdamW, Muon, SGD with momentum) and learning rate schedulers (cosine annealing, one cycle policy, reduce-on-plateau). Does this count as a valid experiment?
-Ruling: 1.0 (Valid experiment)
-
-Where to document this:
-If the goal is understanding training stability and sensitivity: EDA_EXPERIMENTS.md
-If the goal is improving the public leaderboard and it changes the final pipeline: LEADERBOARD_EXPERIMENTS.md
-Choose one as primary and cross-reference the other if needed.
-Rationale: Yes. Optimizer choice and learning rate scheduling are core training design decisions. A controlled comparison answers a clear research question, such as “Which optimizer or scheduler yields the best identity-balanced mAP and stability for this dataset and model?”
-
-How to count experiments:
-Comparing multiple optimizers under one fixed scheduler is one experiment (“Which optimizer works best?”).
-Comparing multiple schedulers under one fixed optimizer is one experiment (“Which scheduler works best?”).
-Comparing optimizer–scheduler pairs as a grid is one experiment if framed as one question (“Which combination works best?”), but it must be documented as a structured study, not ad hoc tuning.
-
-Validity requirements (minimum):
-Controlled setup: same backbone, loss, augmentations, batch size, embedding dimension, training length, and evaluation protocol
-Clear definitions: optimizer hyperparameters (weight decay, betas, momentum) and scheduler settings (warmup, max LR, cycle length, patience)
-
-Report identity-balanced mAP plus training stability indicators (divergence rate, variance across seeds, convergence curves)
-What to document:
-The comparison plan (which optimizers, which schedulers, and why)
-
-A results table with identity-balanced mAP for each condition
-Training dynamics: convergence speed, stability, and sensitivity
-Mean and standard deviation across seeds for top contenders
-Interpretation: why the best choice fits this task (regularization, noisy gradients, batch size effects)
-
-**Q22:** I ran my best experiment according to mAP five to ten times with different random seeds. Does this count as a valid experiment?
-Ruling: 1.0 (Valid experiment)
-Where to document this: LEADERBOARD_EXPERIMENTS.md (cross-reference in EDA_EXPERIMENTS.md if you include a variance or stability discussion)
-Rationale: Yes. Running the same configuration across five to ten random seeds increases the significance of the result and reduces the chance of reporting a lucky run.
-What to document:
-The exact configuration being repeated (model, loss, training schedule, augmentation, validation protocol)
-The list of random seeds used
-Identity-balanced mAP for each seed
-Mean and standard deviation of identity-balanced mAP across seeds
-Interpretation:
-If the standard deviation is small, the result supports the claim of improvement
-If the standard deviation is large, the result indicates instability and limits the strength of the claim
-
 ## 1. Backbone Comparison
 
 One of the first experiments I did, was using different backbone models to compute the embeddings used as input for the classification head. The classification head relies completely on the information encoded in the embeddings. Therefore using a backbone model that extracts more relevant information should improve the overall performance drastically.
@@ -121,18 +59,19 @@ The specific configuration files for each run are:
 
 ### Conclusion
 
-TODO:
+There are two clear winners emerging from this comparison. DINOv3 has by far the best mAP score of 0.8932, even outperforming the domain model MegaDescriptor by 15,54%. On the other hand there EfficientNet also surpassed MegaDescriptor by 7,85% with a mAP of 0.8329 while having only a third of the parameters.
 
-- correlation no. param and performance
-- DinoV3 and eficientNet very good
-- Dino: modern architecture and large training dataset + large model
-- EfficientNet: maybe: large embedding size?
+Looking at the relationship between parameters, embedding size and mAP it seems to suggest that both have a positive influence on classification performance.
+Most likely can larger models provide denser embeddings and larger embeddings can retain more information. Which both should help with classification.
+
+Because the goal of the challenge is to develop the best performing model I will use DINOv3 embeddings for the challenge.
+But for a possible deployment the efficiency of EfficientNet should be kept in consideration.
 
 ## 2. Learning Rate Scheduler Comparison
 
 When training the classification head, choosing the right Learning Rate Scheduler can help stabilize training and avoid local minimums.
 I decided to compare the reduce on plateau scheduler from the baseline notebook with 3 other common schedulers: Cosine Annealing, Step Decay and Exponential.
-Because the model uses ArcFace loss, which includes learnable parameters, I decided to also add a version of Cosine Annealing with a warmup period. For the first 5 epochs the learning rate (LR) is increased linear to stabilize the training. after Epoch 5 a Cosine Annealing Schduler is used.
+Because the model uses ArcFace loss, which includes learnable parameters, I decided to also add a version of Cosine Annealing with a warmup period. For the first 5 epochs the learning rate (LR) is increased linear to stabilize the training. after Epoch 5 a Cosine Annealing Scheduler is used.
 
 ### Test Setup
 
@@ -166,7 +105,11 @@ The specific configuration files for each run are:
 
 ### Conclusion
 
-TODO
+The cosine annealing approach only slightly improves on the baseline with a mAP of 0.7860 (+1.77%) with warmup and mAP of 0.7820 (+1.26%) without. Looking at the loss and accuracy curves can give us some more insight. Here we can see, that both variants converge much faster compared to the baseline. So that they reach there best mAP already after 32 (28 without warmup) epochs.
+
+Compared to that step decay and exponential decay both underperform heavily (0.6549 and 0.5786 mAP), indicating either these schedulers are not a good fit for the scenario, or the hyperparameter need to be adjusted further. The next step should therefore be to do a sweep over different learning rates for each scheduler.
+
+I will be using Cosine Annealing with a 5 epoch warmup for my combined best approach.
 
 ## 3. Optimizer comparison
 
@@ -201,13 +144,14 @@ The specific configuration files for each run are:
 
 ### Conclusion
 
-- Muon improves over AdamW by +0.0257 best val mAP, while SGD underperforms AdamW by -0.1252 best val mAP.
-- Muon converges way faster
-- SGD might need more epochs
+It is clear that SGD performs worst out of all three options, being outperformed by both muon and the baseline.
+With a mAP of 0.8117 Muon not only improves on AdamW baseline by +3.3% it also reaches this level much faster during traing.
+
+For this task Muon is clearly the best option, offering best model performance and fast training, and will be used in the final model configuration.
 
 ## 4. Validation of best experiment over multiple random seeds
 
-After experimentation the best performing model on the second Kaggle challenge used a DinoV3 backend, ArcFace as a loss function, Cosine Annealing with warmup as LR-scheduler, and muon as an optimizer. To validate the stability of the model I trained it 8 times using different seeds.
+After experimentation, the best performing model configuration for the second Kaggle challenge used a DinoV3 backend, ArcFace as a loss function, Cosine Annealing with warmup as LR-scheduler, and muon as an optimizer. To validate the stability of the model I trained it 8 times using different seeds.
 
 ### Setup
 
@@ -236,10 +180,10 @@ The repeated runs all use the same configuration file:
 
 ![stability wandb report](img/stability-wandb.png)
 
-- Mean best val mAP: 0.8798
-- Std best val mAP: 0.0257
-- Interpretation: the result is strong on average, but variance is non-trivial and should be reported with the mean.
+### Conclusion
 
-### conclusion
+Across 8 seeds, the mean validation mAP is 0.8798 with a standard deviation of 0.025. The values for mAP range from 0.8358 to 0.9234.
 
-TODO
+This confirms the configuration to be consistently strong for the challenge. Although a change of the seed can still alter the model performance moderately. With a std of 0.025 this could be an indicator for instability in the training process.
+
+When assembling the model configuration, some configuration option where abandoned even though their performance was well within a mAP of +/- 0.025. It is therefore possible that a different configuration could provide better results, but was not considered because their performance was due to random factors worse than the final model choice.
