@@ -1,12 +1,20 @@
+## My TODOs:
+
+- ReadMe:
+  - links to wandb
+  - data structure
+- Experiments
+  - config files
+
 ## Check Deliverables
 
 ### W&B Tracking
 
-- [X] Minimum experiments logged (12 for teams, 6 for solo)
-- [X] All hyperparameters logged including number of model parameters
-- [X] Training/validation metrics tracked
+- [x] Minimum experiments logged (12 for teams, 6 for solo)
+- [x] All hyperparameters logged including number of model parameters
+- [x] Training/validation metrics tracked
 - [ ] Project shared with instructors or set to public
-- [X] Clear run naming convention
+- [x] Clear run naming convention
 
 ### Kaggle Notebooks
 

@@ -37,15 +37,18 @@ Intervention definition used in these runs:
 - `none`: no background modification.
 - `noise`: replace non-jaguar pixels with random noise.
 
-| WandB Run                                                                                      | Train BG Intervention | Val BG Intervention | Optimizer | LR Scheduler  | Seed | MAP    | Min Val Loss |
-| ---------------------------------------------------------------------------------------------- | --------------------- | ------------------- | --------- | ------------- | ---- | ------ | ------------ |
-| [No intervention baseline](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/pr727ulw) | none                  | none                | adamw     | cosine_warmup | 42   | 0.8589 | 2.7494       |
-| [Noise in train only](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/87w4esrb)      | noise                 | none                | adamw     | cosine_warmup | 42   | 0.7569 | 11.1889      |
-| [Noise in train and val](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/cbz8xei0)   | noise                 | noise               | adamw     | cosine_warmup | 42   | 0.8610 | 2.7303       |
+The specific configuration files for each run are:
+[No intervention baseline](configs/dinov3-cosine.json), [Noise in train only](configs/bg_intervention_train.json), [Noise in train and val](configs/bg_intervention_train_val.json).
 
-- Delta vs baseline (train-only noise): -0.1021 mAP
-- Delta vs baseline (train+val noise): +0.0020 mAP
-- Interpretation: applying noise only during training hurts performance strongly, while matching train/val intervention keeps performance comparable to baseline.
+| WandB Run                                                                                                      | Train BG Intervention | Val BG Intervention | Optimizer | LR Scheduler  | Seed | MAP    | Min Val Loss |
+| -------------------------------------------------------------------------------------------------------------- | --------------------- | ------------------- | --------- | ------------- | ---- | ------ | ------------ |
+| [No intervention baseline (dinov3-cosine)](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/6b3ju9n1) | none                  | none                | adamw     | cosine_warmup | 42   | 0.8994 | 1.8889       |
+| [Noise in train only](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/87w4esrb)                      | noise                 | none                | adamw     | cosine_warmup | 42   | 0.7569 | 11.1889      |
+| [Noise in train and val](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/cbz8xei0)                   | noise                 | noise               | adamw     | cosine_warmup | 42   | 0.8610 | 2.7303       |
+
+- Delta vs baseline (train-only noise): -0.1426 mAP
+- Delta vs baseline (train+val noise): -0.0385 mAP
+- Interpretation: both noise interventions underperform the no-intervention baseline, with train-only noise causing a much larger drop.
 
 ## Loss Functions
 
@@ -58,6 +61,9 @@ Compare different metric learning and classification losses:
 | **ArcFace**    | Logits (normalized + margin) | ArcFaceLayer      | CE on margin-adjusted logits | Normalized embeddings + cosine similarity |
 | **CE**         | Logits only                  | Linear classifier | Standard cross-entropy       | Embeddings + cosine similarity            |
 | **Focal loss** | Logits only                  | Linear classifier | Hard example weighting       | Embeddings + cosine similarity            |
+
+Config Files
+[ArcFace baseline](configs/baseline.json).
 
 ### Run Comparison
 

@@ -69,31 +69,58 @@ Add this as Q23, and renumber the current Edge cases question from Q23 → Q24.
 
 ## 1. Backbone comparison
 
-### report:
+One of the first experiments I did, was using different backbone models to compute the embeddings used as input for the classification head. The classification head relies completely on the information encoded in the embeddings. Therefore using a backbone model that extracts more relevant information should improve the overall performance drastically.
 
-Why these backbones
-Table: mAP and efficiency metrics
-Interpretation: what characteristics matter and why
+### Backbones
+
+I chose 6 different backbones to compare. All of them where pretrained on large datasets. The models differ in their size and architecture.
+
+**1. MegaDescriptor:**
+A large transformer model of 195,198,516 parameters based on Swin-Transformer architecture. This model was trained on wildlife images, to facilitate the identification of animals. Because this is the only model in the comparison that was trained for the purpose of this challenge, I expect it to perform very well.
+
+**2. SwinTransformer**
+A transformer model with 27,519,354 parameters. Because MegaDescriptor is based on SwinTransformer model it will be interesting to compare what effect the training on domain images has, compared to the general training of SwinTransformer.
+I accidentally used the tiny version with only ~30.000.000 parameters instead of the large version that MegaDescriptor is based on, so the results may be influenced by the smaller parameter count.
+
+**3. DinoV3**
+DinoV3 is a vision transformer model introduced in 2025 and considered state of the art for many computer vision tasks. It is also the largest model in this comparison with 303,129,600 parameters. Because the model implements Rotary Position Embeddings, we are able to input images with a resolution of up to 4096×4096 pixel. This might improve the detection of smaller patterns and and therefore improve classification performance.
+
+**4. ConvNext v2**
+ConvNextV2 is a convolutional neural network with 27,866,496 parameters. The goal is to compare how a traditional CNN can compare against transformer architectures.
+
+**5. EfficientNet**
+Efficient net is a CNN model with 63,786,960 parameters. This model was included to see the effect of parameters size on model performance. It resides somewhere between small models with less than 30,000,000 parameters and the large models with 200,000,000+ parameters.
+
+**6. ResNet18**
+ResNet is the smallest model in the comparison. It is a CNN with only 11,176,512 parameters. The small parameter count should also make it the most efficient model in the lineup.
 
 ### Test Setup
 
-- backbone model: variable
+For all models a uniform testing setup was used:
+
 - loss function: ArcFace
-- LR-scheduler: reduce on plateu
+- LR-scheduler: reduce on plateau
 - base LR: 1e-4
 - optimizer: AdamW
 - weight decay: 1e-4
 
+The specific configuration files for each run are:
+[MegaDescriptor](configs/baseline.json), [DINOv3](configs/dinov3.json), [ConvNeXt v2](configs/convnextv2.json), [SwinTransformer](configs/swintransformer.json), [EfficientNet](configs/efficientnet.json), [ResNet18](configs/resnet18.json).
+
 ### Results
 
-| WandB Run                                                                              | HF Path                                  | Parameters  | MAP    | Min Val Loss |
-| -------------------------------------------------------------------------------------- | ---------------------------------------- | ----------- | ------ | ------------ |
-| [Megadescriptor](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/47zq6bkj)   | BVRA/MegaDescriptor-L-384                | 195,198,516 | 0.7723 | 4.7830       |
-| [DINOv3](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/7hnwafmx)           | facebook/dinov3-vitl16-pretrain-lvd1689m | 303,129,600 | 0.8923 | 2.2992       |
-| [ConvNeXt v2](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/48uwne32)      | facebook/convnextv2-tiny-22k-224         | 27,866,496  | 0.7302 | 5.9024       |
-| [Swin Transformer](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/f5fv3fff) | microsoft/swin-tiny-patch4-window7-224   | 27,519,354  | 0.7507 | 5.4399       |
-| [EfficientNet](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/0byg06qo)     | google/efficientnet-b7                   | 63,786,960  | 0.8329 | 3.5640       |
-| [ResNet18](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/b8ou0tqc)         | microsoft/resnet-18                      | 11,176,512  | 0.6531 | 8.3584       |
+| WandB Run                                                                              | HF Path                                  | Parameters  | Backbone Embedding Dim | MAP    | Min Val Loss |
+| -------------------------------------------------------------------------------------- | ---------------------------------------- | ----------- | ---------------------- | ------ | ------------ |
+| [Megadescriptor](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/47zq6bkj)   | BVRA/MegaDescriptor-L-384                | 195,198,516 | 1536                   | 0.7723 | 4.7830       |
+| [DINOv3](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/7hnwafmx)           | facebook/dinov3-vitl16-pretrain-lvd1689m | 303,129,600 | 1024                   | 0.8923 | 2.2992       |
+| [ConvNeXt v2](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/48uwne32)      | facebook/convnextv2-tiny-22k-224         | 27,866,496  | 768                    | 0.7302 | 5.9024       |
+| [Swin Transformer](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/f5fv3fff) | microsoft/swin-tiny-patch4-window7-224   | 27,519,354  | 768                    | 0.7507 | 5.4399       |
+| [EfficientNet](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/0byg06qo)     | google/efficientnet-b7                   | 63,786,960  | 2560                   | 0.8329 | 3.5640       |
+| [ResNet18](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/b8ou0tqc)         | microsoft/resnet-18                      | 11,176,512  | 512                    | 0.6531 | 8.3584       |
+
+![WandB report backbones](./img/backbones_wandb.png)
+
+### Conclusion
 
 ## 2. LR-scheduler comparison
 
@@ -107,6 +134,9 @@ Interpretation: what characteristics matter and why
 - weight decay: 1e-4
 - seed: 42
 - baseline scheduler config: reduce_on_plateau with factor=0.5, patience=5
+
+The specific configuration files for each run are:
+[Reduce on Plateau](configs/baseline.json), [Cosine](configs/lr-scheduler-cosine.json), [Cosine Warmup](configs/lr-scheduler-cosine-warmup.json), [Step Decay](configs/lr-scheduler-step.json), [Exponential](configs/lr-scheduler-exponential.json).
 
 ### Results
 
@@ -134,6 +164,9 @@ Interpretation: what characteristics matter and why
 - train/val split: 0.8 / 0.2
 - seed: 42
 
+The specific configuration files for each run are:
+[AdamW baseline](configs/c2-dinov3-cosine.json), [Muon](configs/optimizer-muon.json), [SGD](configs/optimizer-sgd.json).
+
 ### Results
 
 | WandB Run                                                                            | Optimizer | LR Scheduler  | Seed | MAP    | Min Val Loss |
@@ -154,6 +187,9 @@ Interpretation: what characteristics matter and why
 - optimizer: muon
 - LR scheduler: cosine_warmup
 - loss function: ArcFace
+
+The repeated runs all use the same configuration file:
+[c2-dinov3-cosine-muon](configs/c2-dinov3-cosine-muon.json).
 
 ### Results (8 seeds)
 
