@@ -43,16 +43,30 @@ Config Files
 
 ## Background Variation
 
-Q26: I measured the performance drop of my top-performing model when including background information vs disregarding it. Does this count as a valid experiment?
-Ruling: 1.0 (Valid experiment)
-Where to document this: EDA_EXPERIMENTS.md (cross-reference in LEADERBOARD_EXPERIMENTS.md if it is part of your final submission report)
-Rationale: Yes. This is a critical analysis of whether the top-performing model relies on background cues rather than identity cues. It tests robustness and helps interpret improvements on the leaderboard.
-Bonus: Any experiment entry that includes this comparison receives a +0.5 bonus, applied once per experiment entry.
-What to document:
-The exact top-performing configuration (model, loss, training protocol, validation protocol)
-The background intervention definition (use of included alpha mask or other methods like custom segmentation, gray replacement, random replacement, synthetic background, etc.)
-Identity-balanced mAP with background included vs background disregarded
-The mAP delta (performance drop) and a short interpretation of what the drop suggests about context reliance
+In the provided images there may be other information encoded apart from the appearance of the jaguar. The background could provide locational or temporal clues that help with identification.
+
+### Test Setup
+
+To examine the extend of these effects I removed the background from the train and validation sets. Next I used the best performing model architecture and compared three scenarios:
+
+1. Train and validate on images with background
+2. Train without background, validate on complete images
+3. Train and validate on images without background
+
+In all cases where the background was removed, I used the provided alpha masks to replace all non-jaguar pixels with random noise.
+
+The following configuration was used for training:
+
+backbone: facebook/dinov3-vitl16-pretrain-lvd1689m
+loss function: ArcFace
+batch size: 32
+LR: 3e-4
+LR-Scheduler: Cosine Annealing with warmup
+Optimizer: AdamW
+seed: 42
+
+The specific configuration files for each run are:
+[No intervention baseline](configs/dinov3-cosine.json), [Noise in train only](configs/bg_intervention_train.json), [Noise in train and val](configs/bg_intervention_train_val.json).
 
 ### Run Comparison
 
@@ -61,15 +75,17 @@ Intervention definition used in these runs:
 - `none`: no background modification.
 - `noise`: replace non-jaguar pixels with random noise.
 
-The specific configuration files for each run are:
-[No intervention baseline](configs/dinov3-cosine.json), [Noise in train only](configs/bg_intervention_train.json), [Noise in train and val](configs/bg_intervention_train_val.json).
-
 | WandB Run                                                                                                      | Train BG Intervention | Val BG Intervention | Optimizer | LR Scheduler  | Seed | MAP    | Min Val Loss |
 | -------------------------------------------------------------------------------------------------------------- | --------------------- | ------------------- | --------- | ------------- | ---- | ------ | ------------ |
 | [No intervention baseline (dinov3-cosine)](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/6b3ju9n1) | none                  | none                | adamw     | cosine_warmup | 42   | 0.8994 | 1.8889       |
 | [Noise in train only](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/87w4esrb)                      | noise                 | none                | adamw     | cosine_warmup | 42   | 0.7569 | 11.1889      |
 | [Noise in train and val](https://wandb.ai/linus-loell/jaguar-reid-linus-loell/runs/cbz8xei0)                   | noise                 | noise               | adamw     | cosine_warmup | 42   | 0.8610 | 2.7303       |
 
+![wandb report bg intervention](img/bg-intervention-wandb.png)
+
 - Delta vs baseline (train-only noise): -0.1426 mAP
 - Delta vs baseline (train+val noise): -0.0385 mAP
+
+### Conclusion
+
 - Interpretation: both noise interventions underperform the no-intervention baseline, with train-only noise causing a much larger drop.
