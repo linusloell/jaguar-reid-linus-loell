@@ -4,21 +4,6 @@ DinoV3 with RoPE (Rotary Positional Embeddings)?
 
 ## Background Variation
 
-Q0: I measured the difference in identity-balanced mAP when including background vs removing background. Does this count?
-Ruling: 1.0 (Valid experiment)
-Where to document this: EDA_EXPERIMENTS.md (cross-reference in leaderboard document only if it becomes part of a submission)
-Rationale: Key re-identification question: are predictions driven by identity cues or background cues?
-You MUST define the background intervention. Valid options include:
-Replace non-jaguar pixels with a constant value (for example, black/gray)
-Replace non-jaguar pixels with a blurred version of the same image
-Replace non-jaguar pixels with random noise
-Use a segmentation method to produce a jaguar mask, then apply one of the replacements outside the mask
-What to document:
-Exact intervention definition (including mask generation if used)
-Where it is applied (train only, eval only, or both) and the reason
-Identity-balanced mAP under each condition
-Error analysis: which identities improve or worsen
-
 Q26: I measured the performance drop of my top-performing model when including background information vs disregarding it. Does this count as a valid experiment?
 Ruling: 1.0 (Valid experiment)
 Where to document this: EDA_EXPERIMENTS.md (cross-reference in LEADERBOARD_EXPERIMENTS.md if it is part of your final submission report)
@@ -56,14 +41,14 @@ The specific configuration files for each run are:
 
 Compare different metric learning and classification losses:
 
-| Loss           | Applied to                   | Head type         | Training target              | Inference                                 |
-| -------------- | ---------------------------- | ----------------- | ---------------------------- | ----------------------------------------- |
-| **ArcFace**    | Logits (normalized + margin) | ArcFaceLayer      | CE on margin-adjusted logits | Normalized embeddings + cosine similarity |
-| **CE**         | Logits only                  | Linear classifier | Standard cross-entropy       | Embeddings + cosine similarity            |
-| **Focal loss** | Logits only                  | Linear classifier | Hard example weighting       | Embeddings + cosine similarity            |
+| Loss        | Applied to                   | Head type         | Inference                                 |
+| ----------- | ---------------------------- | ----------------- | ----------------------------------------- |
+| **ArcFace** | Logits (normalized + margin) | ArcFaceLayer      | Normalized embeddings + cosine similarity |
+| **CE**      | Logits                       | Linear classifier | Embeddings + cosine similarity            |
+| **Focal**   | Logits                       | Linear classifier | Embeddings + cosine similarity            |
 
 Config Files
-[ArcFace baseline](configs/baseline.json).
+[ArcFace baseline](configs/baseline.json), [Cross Entropy](configs/loss-ce.json), [Focal](configs/loss-focal.json)
 
 ### Run Comparison
 
